@@ -1,6 +1,7 @@
 package com.codepath.nationalparks
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +10,16 @@ import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.codepath.asynchttpclient.AsyncHttpClient
+import com.codepath.asynchttpclient.RequestParams
+import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import okhttp3.Headers
 
 
 // --------------------------------//
 // CHANGE THIS TO BE YOUR API KEY  //
 // --------------------------------//
-private const val API_KEY = "<YOUR-API-KEY-HERE>"
+private const val API_KEY = BuildConfig.API_KEY
 
 /*
  * The class for the only fragment in the app, which contains the progress bar,
@@ -49,9 +54,14 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
 
         // Create and set up an AsyncHTTPClient() here
 
+        val client = AsyncHttpClient()
+        val params = RequestParams()
+
         // Using the client, perform the HTTP request
 
-        /* Uncomment me once you complete the above sections!
+        params["api_key"] = API_KEY
+        client["https://developer.nps.gov/api/v1/parks", params, object : JsonHttpResponseHandler()
+        /* Uncomment me once you complete the above sections! */
         {
             /*
              * The onSuccess function gets called when
@@ -60,7 +70,7 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
             override fun onSuccess(
                 statusCode: Int,
                 headers: Headers,
-                json: JsonHttpResponseHandler.JSON
+                json: JSON
             ) {
                 // The wait for a response is over
                 progressBar.hide()
@@ -93,7 +103,7 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
                 }
             }
         }]
-        */
+        /**/
 
     }
 
