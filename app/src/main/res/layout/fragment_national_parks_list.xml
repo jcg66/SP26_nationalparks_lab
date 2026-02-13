@@ -47,7 +47,7 @@
         android:layout_height="42sp"
         android:layout_margin="4sp"
         android:gravity="center"
-        android:text="PageNumber"
+        android:text="Loading..."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/page_next"
         app:layout_constraintHorizontal_bias="0.5"
