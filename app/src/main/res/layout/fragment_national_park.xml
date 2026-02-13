@@ -15,41 +15,48 @@
         android:text="Park Name"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textSize="22sp"
-        app:layout_constraintEnd_toStartOf="@+id/park_image"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintBottom_toTopOf="@id/park_description" />
 
     <!-- Park Description -->
+
     <TextView
         android:id="@+id/park_description"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="4sp"
+        android:ellipsize="end"
+        android:maxLines="5"
         android:text="Park Description"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/park_image"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/park_image"
         app:layout_constraintTop_toBottomOf="@+id/park_name" />
 
     <ImageView
         android:id="@+id/park_image"
-        android:layout_width="wrap_content"
-        android:layout_height="96sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="96sp"
+        android:layout_height="wrap_content"
+        android:maxHeight="96sp"
+        android:minHeight="72sp"
+        app:layout_constraintHeight_max="96sp"
+        app:layout_constraintHeight_min="72sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/park_location"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/park_location"
-        android:layout_width="0dp"
+        android:layout_width="96dp"
         android:layout_height="wrap_content"
         android:text="Park location"
         android:textSize="14sp"
         android:textStyle="italic"
-        app:layout_constraintEnd_toStartOf="@+id/park_image"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/park_description" />
+        app:layout_constraintTop_toBottomOf="@+id/park_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
