@@ -12,9 +12,9 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "API_KEY", "\"${System.getenv('NATIONALPARKS_API_KEY')}\""
+        buildConfigField "String", "WEATHER_API_KEY", "\"${System.getenv('OPENWEATHER_API_KEY')}\""
     }
 
     buildTypes {

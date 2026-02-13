@@ -32,7 +32,7 @@
         android:text="Park Description"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/park_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/park_image"
         app:layout_constraintTop_toBottomOf="@+id/park_name" />
@@ -43,6 +43,7 @@
         android:layout_height="wrap_content"
         android:maxHeight="96sp"
         android:minHeight="72sp"
+        android:contentDescription="park_image"
         app:layout_constraintHeight_max="96sp"
         app:layout_constraintHeight_min="72sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,5 +59,27 @@
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/park_name" />
+
+    <ImageView
+        android:id="@+id/park_weathericon"
+        android:layout_width="24sp"
+        android:layout_height="24sp"
+        android:contentDescription="park_weathericon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/park_image"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/park_weathertext"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="4sp"
+        android:gravity="center_vertical"
+        android:text="TextView"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/park_weathericon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/park_weathericon"
+        app:layout_constraintTop_toBottomOf="@+id/park_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

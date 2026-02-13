@@ -1,6 +1,5 @@
 package com.codepath.nationalparks
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +33,8 @@ class NationalParksRecyclerViewAdapter(
         val mParkDescription: TextView = mView.findViewById(id.park_description) as TextView
         val mParkLocation: TextView = mView.findViewById(id.park_location) as TextView
         val mParkImage: ImageView = mView.findViewById(id.park_image) as ImageView
+        val mParkWeatherText: TextView = mView.findViewById(id.park_weathertext) as TextView
+        val mParkWeatherIcon: ImageView = mView.findViewById(id.park_weathericon) as ImageView
 
         override fun toString(): String {
             return mParkName.toString() + " '" + mParkDescription.text + "'"
@@ -42,6 +43,14 @@ class NationalParksRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ParkViewHolder, position: Int) {
         val park = parks[position]
+        fun updateWeather() {
+            holder.mParkWeatherText.text = "Weather: ${park.weatherText}"
+            Glide.with(holder.mView)
+                .load(park.weatherIconUrl)
+                .centerInside()
+                .into(holder.mParkWeatherIcon)
+        }
+        park.loadWeather { updateWeather() }
 
         // Step 4b - Bind the park data to the views
         holder.mItem = park
@@ -55,6 +64,7 @@ class NationalParksRecyclerViewAdapter(
             .load(imageUrl)
             .centerInside()
             .into(holder.mParkImage)
+        updateWeather()
 
 
         // Sets up click listener for this park item
